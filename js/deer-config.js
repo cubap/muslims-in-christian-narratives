@@ -57,7 +57,7 @@ export default {
                 <button type="submit" class="col"><i class="fas fa-plus"></i> Character</button>
             </div>
         </form>
-        <form deer-type="incident" id="incidentForm" class="is-hidden">
+        <form deer-type="incident" id="incidentForm" class="is-hidden" deer-listening="mentionsList">
             <div class="row">
                 <input type="hidden" deer-key="isPartOf" value="${obj["@id"]}">
                 <input type="hidden" deer-key="about" value="">
