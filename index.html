@@ -126,10 +126,14 @@
                 <deer-view deer-collection="estes-characters"></deer-view>
             </section>
 
-            <section class="col-12 col-8-md col-8-lg">
-                <div deer-listening="texts" deer-template="incident-report" deer-id="placeholder" class="card deer-view bd-light col">
+            <section class="col-12 col-8-md col-8-lg card bd-light">
+                <div id="incidentReport" deer-listening="texts" deer-template="incident-report" deer-id="placeholder" class="deer-view col">
                     Select a text on the left to record a new reference
                 </div>
+                <div id="mentionsContainer" class="is-hidden">
+                    <h5>Existing Incidents</h5>
+                    <div id="mentionsList"></div>
+                </div>        
             </section>
 
         </div>
@@ -147,7 +151,6 @@
             </small>
         </div>
     </div>
-    
 
     <script src="js/deer.js" type="module"></script>
     <!-- <script src="./js/deer.js" type="module"></script> -->
@@ -155,6 +158,12 @@
 <script>
     document.onscroll = () => {
         badge.style.opacity = 1 - window.scrollY / window.innerHeight * 2
+    }
+
+    window.onhashchange = onload = () => {
+        try {
+            incidentForm.setAttribute("deer-id", window.location.hash.substr(1))
+        } catch (err) {}
     }
 </script>
 
