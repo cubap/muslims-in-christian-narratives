@@ -73,7 +73,10 @@ export default {
                     </div>
                 </form>`,
             then: (elem,obj,options)=>{
-                elem.addEventListener("deer-loaded",(e)=>tagsInput(e.detail))
+                elem.addEventListener("deer-loaded",(e)=>{
+                    Array.from(e.target.getElementsByClassName("tags-input")).forEach(el=>el.parentNode.removeChild(el))
+                    tagsInput(e.target.querySelector("[type='tags']"))
+                })
             } }
         },
         people: (list) => {
